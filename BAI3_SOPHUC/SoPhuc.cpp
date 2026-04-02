@@ -16,27 +16,27 @@ void SoPhuc::Xuat() {
         cout << iThuc << "-" << -iAo << "i";
     }
 }
-SoPhuc SoPhuc::Tong(SoPhuc sp) {
+SoPhuc SoPhuc::Tong(SoPhuc& sp) {
     SoPhuc kq;
     kq.iThuc = iThuc + sp.iThuc;
     kq.iAo = iAo + sp.iAo;
     return kq;
 }
-SoPhuc SoPhuc::Hieu(SoPhuc sp) {
+SoPhuc SoPhuc::Hieu(SoPhuc& sp) {
     SoPhuc kq;
     kq.iThuc = iThuc - sp.iThuc;
     kq.iAo = iAo - sp.iAo;
     return kq;
 }
 
-SoPhuc SoPhuc::Tich(SoPhuc sp) {
+SoPhuc SoPhuc::Tich(SoPhuc& sp) {
     SoPhuc kq;
     kq.iThuc = iThuc * sp.iThuc - iAo * sp.iAo;
     kq.iAo = iThuc * sp.iAo + iAo * sp.iThuc;
     return kq;
 }
 
-SoPhuc SoPhuc::Thuong(SoPhuc sp) {
+SoPhuc SoPhuc::Thuong(SoPhuc& sp) {
     SoPhuc kq;
     int mau = sp.iThuc * sp.iThuc + sp.iAo * sp.iAo;
     if (mau != 0) {
