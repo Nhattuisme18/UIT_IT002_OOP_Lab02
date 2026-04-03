@@ -11,9 +11,9 @@ int main() {
     SoPhuc hieu = a.Hieu(b);
     SoPhuc tich = a.Tich(b);
     SoPhuc thuong = a.Thuong(b);
-    cout << "Tong: ";
+    cout << "Tong: "; 
     tong.Xuat();
-    cout << endl << "Hieu: ";
+    cout <<endl<< "Hieu: "; 
     hieu.Xuat();
     cout << endl;
     cout << "Tich: ";
