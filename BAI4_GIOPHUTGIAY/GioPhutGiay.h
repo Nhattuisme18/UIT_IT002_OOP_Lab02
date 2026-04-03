@@ -7,11 +7,11 @@ private:
 	int iGio;
 	int iPhut;
 	int iGiay;
-	bool GioHopLe(int h, int p, int s);
+	bool GioHopLe(int h , int p , int s);
 public:
 	void Nhap();
 	void Xuat();
 	void TinhCongThemMotGiay();
 };
 
-#endif 
+#endif
