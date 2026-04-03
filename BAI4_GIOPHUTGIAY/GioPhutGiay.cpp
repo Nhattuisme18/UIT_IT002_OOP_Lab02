@@ -3,27 +3,41 @@
 
 using namespace std;
 
-bool GioPhutGiay::GioHopLe(int h, int p, int s) {
-	if (h >= 24 || h < 0 || p >= 60 || p < 0 || s >= 60 || s < 0) return false;
-	else return true;
-}
 
 
 void GioPhutGiay::Nhap() {
-	do {
-		cout << "Hay nhap gio: ";
-		cin >> iGio;
-		cout << "Hay nhap phut: ";
-		cin >> iPhut;
-		cout << "Hay nhap giay: ";
-		cin >> iGiay;
-		if (!GioHopLe(iGio, iPhut, iGiay)) {
-			cout << "Thoi gian ko hop le, vui long nhap lai." << '\n';
+	while (1) {
+		bool valid = 1;
+		cout << "Nhap gio, phut, giay: ";
+		cin >> iGio >> iPhut >> iGiay;
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Nhap sai dinh dang.\n";
+			continue;
 		}
-	} while (!GioHopLe(iGio, iPhut, iGiay));
+
+		if (iGio >= 0 && iGio < 24 && iPhut >= 0 && iPhut < 60 && iGiay >= 0 && iGiay < 60) break;
+		else {
+			if (iGio < 0 || iGio > 24) {
+				cout << "Gio khong hop le.\n";
+				valid = 0;
+			}
+			if (iPhut < 0 || iPhut>60) {
+				cout << "Phut khong hop le.\n";
+				valid = 0;
+			}
+			if (iGiay < 0 || iGiay >60) {
+				cout << "Giay khong hop le.\n";
+				valid = 0;
+			}
+		}
+		if (valid) break;
+	}
 }
+
 void GioPhutGiay::Xuat() {
-	cout << "Thoi diem sau khi cong them 1 giay la: ";
+	cout << "Thoi diem moi (+1s) la: " << endl;
 	cout << iGio << " gio " << iPhut << " phut " << iGiay << " giay";
 }
 
