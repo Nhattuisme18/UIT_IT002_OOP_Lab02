@@ -20,8 +20,15 @@ void NgayThangNam::Nhap() {
 
 	while (1) {
 		bool valid = 1;
-		cout << "Nhap ngay thang nam: ";
+		cout << "Nhap ngay thang nam (so tu nhien): ";
 		cin >> iNgay >> iThang >> iNam;
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Nhap sai dinh dang.\n";
+			continue;
+		}
+
 		if (iNgay < 1 || iNgay > SoNgayTrongThang(iThang, iNam)) {
 			valid = 0;
 			cout << "Ngay khong hop le.\n";
@@ -56,3 +63,4 @@ void NgayThangNam::Xuat() {
 	cout << iThang << "/" << iNam << endl;
 
 }
+
